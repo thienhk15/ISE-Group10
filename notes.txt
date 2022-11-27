@@ -1,0 +1,5 @@
+vào packet-json
+cài mấy cái thư viện ở dependencies
+rồi install về
+npm start để chạy trên localhost có port là 3000
+npm run là để auto-compile file css
