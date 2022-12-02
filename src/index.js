@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const hbs = require('express-handlebars')
 const path = require('path');
 const route = require('./routes');
+const { mainModule } = require('process');
+
 // const Sequelize = require('sequelize');
 // const sequelize = new Sequelize('database', 'username', 'password');
 const app = express();
@@ -16,9 +18,14 @@ app.use(express.json());
 app.use(morgan('combined'));
 
 // template engine
-app.engine('handlebars', hbs.engine())
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'resource', 'views'));
+app.set('views', path.join(__dirname, 'views'));
+
+app.engine('handlebars', hbs.engine({
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials',
+    defaultLayout: 'customer-main',
+}))
 
 route(app);
 
