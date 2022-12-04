@@ -4,6 +4,7 @@ const hbs = require('express-handlebars')
 const path = require('path');
 const route = require('./routes');
 const { mainModule } = require('process');
+const db = require('./db/index')
 
 // const Sequelize = require('sequelize');
 // const sequelize = new Sequelize('database', 'username', 'password');
