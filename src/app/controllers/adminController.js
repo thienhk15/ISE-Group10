@@ -1,6 +1,6 @@
 class adminController{
     chart(req, res){
-        res.render('admin/chart', {layout: 'admin'});
+        res.render('admin/chart', {layout: 'admin-main'});
     }
     error401(req, res){
         res.render('admin/error401', {layout: 'admin'})

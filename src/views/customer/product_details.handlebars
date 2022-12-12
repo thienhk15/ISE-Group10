@@ -66,13 +66,15 @@
 	<div class="span9">
     <ul class="breadcrumb">
     <li><a href="index">Home</a> <span class="divider">/</span></li>
-    <li><a href="products">Products</a> <span class="divider">/</span></li>
+    <li><a href="../products">Products</a> <span class="divider">/</span></li>
     <li class="active">product Details</li>
     </ul>	
+	{{#with book}}
+
 	<div class="row">	  
 			<div id="gallery" class="span3">
             <a href="/customers/img/themes/images/products/large/f1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
-				<img src="/customers/img/themes/images/products/large/3.jpg" style="width:100%" alt="Fujifilm FinePix S2950 Digital Camera"/>
+				<img src="{{imageUrl}}" style="width:100%" alt="{{title}}"/>
             </a>
 			<div id="differentview" class="moreOptopm carousel slide">
                 <div class="carousel-inner">
@@ -105,12 +107,11 @@
 			</div>
 			</div>
 			<div class="span6">
-				<h3>Fujifilm FinePix S2950 Digital Camera  </h3>
-				<small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>
+				<h3>{{title}}  </h3>
 				<hr class="soft"/>
 				<form class="form-horizontal qtyFrm">
 				  <div class="control-group">
-					<label class="control-label"><span>$222.00</span></label>
+					<label class="control-label"><span>${{price}}</span></label>
 					<div class="controls">
 					<input type="number" class="span1" placeholder="Qty."/>
 					  <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
@@ -120,7 +121,7 @@
 				
 				<hr class="soft"/>
 				<h4>100 items in stock</h4>
-				<form class="form-horizontal qtyFrm pull-right">
+				<!--<form class="form-horizontal qtyFrm pull-right">
 				  <div class="control-group">
 					<label class="control-label"><span>Color</span></label>
 					<div class="controls">
@@ -132,12 +133,10 @@
 						</select>
 					</div>
 				  </div>
-				</form>
+				</form>-->
 				<hr class="soft clr"/>
 				<p>
-				14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. 
-				Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. 
-				Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).
+				{{description}}
 				
 				</p>
 				<a class="btn btn-small pull-right" href="#detail">More Details</a>
@@ -152,7 +151,7 @@
               <li><a href="#profile" data-toggle="tab">Related Products</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade active in" id="home">
+              <div class="tab-pane fade" id="home">
 			  <h4>Product Information</h4>
                 <table class="table table-bordered">
 				<tbody>
@@ -191,7 +190,7 @@
 				Even at the longest zoom settings or in the most challenging of lighting conditions, the S2950 is able to produce crisp, clean results. With its mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to reduce the blurring effects of both hand-shake and subject movement to provide superb pictures.
 				</p>
               </div>
-		<div class="tab-pane fade" id="profile">
+		<div class="tab-pane fade active in" id="profile">
 		<div id="myTab" class="pull-right">
 		 <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
 		 <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
@@ -375,81 +374,26 @@
 					</div>
 			</div>
 			<hr class="soft"/>
+			{{/with}}
 		</div>
 			<div class="tab-pane active" id="blockView">
 				<ul class="thumbnails">
+					{{#each relatedbook}}
 					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/10.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						  <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
-					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/11.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						  <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
-					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/12.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						   <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
-					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/13.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						   <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
-					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/1.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						   <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
-					<li class="span3">
-					  <div class="thumbnail">
-						<a href="product_details"><img src="/customers/img/themes/images/products/2.jpg" alt=""/></a>
-						<div class="caption">
-						  <h5>Manicure &amp; Pedicure</h5>
-						  <p> 
-							Lorem Ipsum is simply dummy text. 
-						  </p>
-						   <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-						</div>
-					  </div>
-					</li>
+                                <div class="thumbnail">
+                                    <a href="product_details/{{id}}" ><img src="{{imageUrl}}" alt="" /></a>
+                                    <div class="caption">
+                                        <h5>{{title}}</h5>
+                                        <p>
+                                            {{description}}
+                                        </p>
+                                        <h4 style="text-align:center"><a class="btn" href="product_details/{{id}}"> <i class="icon-zoom-in"></i></a> <a
+                                                class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
+                                                href="#">{{price}}</a></h4>
+                                    </div>
+                                </div>
+                            </li>
+					{{/each}}
 				  </ul>
 			<hr class="soft"/>
 			</div>
@@ -458,7 +402,6 @@
 					 </div>
 		</div>
           </div>
-
 	</div>
 </div>
 </div> </div>
