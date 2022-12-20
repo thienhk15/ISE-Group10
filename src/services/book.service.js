@@ -13,7 +13,6 @@ const bookService = {
             }
         })
     },
-
     getBookById: (id) => {
         return new Promise(async (resolve, reject) => {
             try {
@@ -58,6 +57,34 @@ const bookService = {
             }
         })
     },
+    searchBookByLimit: (query, startingLimit, resultPerPage) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const books = Book.findAll({
+                    offset: startingLimit, 
+                    limit: resultPerPage,
+                    where: {
+                        $and: [
+                            {
+                                title: {
+                                    $substring: query.name
+                                }
+                            },
+                            {
+                                categoryId: (query.cat == 0) ?
+                                    { $ne: null } :
+                                    { $eq: query.cat }
+                            }
+                        ]
+                    },
+                    raw: true
+                });
+                return resolve(books);
+            } catch (error) {
+                return reject(error);
+            }
+        })
+    },
 
     getBooksByCategoryId: (categoryId) => {
         return new Promise(async (resolve, reject) => {
@@ -77,6 +104,98 @@ const bookService = {
         });
     },
 
+    getBooksLimit(startingLimit, resultPerPage){
+        return new Promise(async (resolve, reject) => {
+            try{
+                const books = Book.findAll({offset: startingLimit, limit: resultPerPage, raw: true});
+                return resolve(books);
+            }
+            catch(error){
+                return reject(error);
+            }
+        })
+    },
+
+    searchBookAndSortedByLimit(query,startingLimit, resultPerPage){
+        return new Promise(async (resolve, reject) => {
+            try {
+                if(query.sort == 'asc'){
+                    const books = Book.findAll({
+                        offset: startingLimit, limit: resultPerPage,
+                        where: {
+                            $and: [
+                                {
+                                    title: {
+                                        $substring: query.name
+                                    }
+                                },
+                                {
+                                    categoryId: (query.cat == 0) ?
+                                        { $ne: null } :
+                                        { $eq: query.cat }
+                                }
+                            ]
+                        },
+                        order: [
+                            ['title', 'ASC'],
+                        ],
+                        raw: true
+                    });
+                    return resolve(books);
+                }
+                else if(query.sort == 'desc'){
+                    const books = Book.findAll({
+                        offset: startingLimit, limit: resultPerPage,
+                        where: {
+                            $and: [
+                                {
+                                    title: {
+                                        $substring: query.name
+                                    }
+                                },
+                                {
+                                    categoryId: (query.cat == 0) ?
+                                        { $ne: null } :
+                                        { $eq: query.cat }
+                                }
+                            ]
+                        },
+                        order: [
+                            ['title', 'DESC'],
+                        ],
+                        raw: true
+                    });
+                    return resolve(books);
+                }
+                else{
+                    const books = Book.findAll({
+                        offset: startingLimit, limit: resultPerPage,
+                        where: {
+                            $and: [
+                                {
+                                    title: {
+                                        $substring: query.name
+                                    }
+                                },
+                                {
+                                    categoryId: (query.cat == 0) ?
+                                        { $ne: null } :
+                                        { $eq: query.cat }
+                                }
+                            ]
+                        },
+                        order: [
+                            ['price', 'ASC'],
+                        ],
+                        raw: true
+                    });
+                    return resolve(books);
+                }
+            } catch (error) {
+                return reject(error);
+            }
+        });
+    },
     searchBookAndSorted(query){
         return new Promise(async (resolve, reject) => {
             try {

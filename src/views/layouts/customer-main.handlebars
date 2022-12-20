@@ -3,10 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Bootshop online Shopping cart</title>
+	<title>Books online Shopping cart</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
+
 	<!--Less styles -->
 	<!-- Other Less css file //different less files has different color scheam
 	<link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
@@ -58,6 +59,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
+	<script src="/customer/js/pagination.js"></script>
 	<script>
 		const validateEmail = (email) => {
 			return email.match(
@@ -71,10 +73,10 @@
 			$result.text('');
 
 			if (validateEmail(email)) {
-				$result.text('   '+ email + ' is valid');
+				$result.text('   ' + email + ' is valid');
 				$result.css('color', 'green');
 			} else {
-				$result.text('   '+ email + ' is not valid');
+				$result.text('   ' + email + ' is not valid');
 				$result.css('color', 'red');
 			}
 			return false;

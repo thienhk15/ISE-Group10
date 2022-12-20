@@ -305,7 +305,7 @@
                                     <div class="caption">
                                         <h5>{{title}}</h5>
                                         <p>
-                                            {{description}}
+                                            Click to view Description
                                         </p>
                                         <h4 style="text-align:center"><a class="btn" href="/customer/product_details/{{id}}"> <i class="icon-zoom-in"></i></a> <a
                                                 class="btn" href="/customer/#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
@@ -320,19 +320,19 @@
                             {{/each}}
                         </ul>
                         <hr class="soft" />
+                        
                     </div>
                 </div>
-
                 <a href="/customer/compair" class="btn btn-large pull-right">Compair Product</a>
                 <div class="pagination">
                     <ul>
-                        <li><a href="/customer/#">&lsaquo;</a></li>
-                        <li><a href="/customer/#">1</a></li>
-                        <li><a href="/customer/#">2</a></li>
-                        <li><a href="/customer/#">3</a></li>
-                        <li><a href="/customer/#">4</a></li>
-                        <li><a href="/customer/#">...</a></li>
-                        <li><a href="/customer/#">&rsaquo;</a></li>
+                    {{#if pagination_info.has_previous_page}}
+					<li><a href="{{originalUrl}}&page={{pagination_info.previous_page}}">Previous</a></li>
+					{{/if}}
+					<li><a>Current page: {{pagination_info.current_page}}</a></li>
+					{{#if pagination_info.has_next_page}}
+					<li><a href="{{originalUrl}}&page={{pagination_info.next_page}}">Next</a></li>
+					{{/if}}
                     </ul>
                 </div>
                 <br class="clr" />

@@ -8,7 +8,6 @@ const categoryService = require("../../services/category.service");
 router.get('/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
-    
     const book = await bookService.getBookById(id);
     const categories = await categoryService.getAllCategories();
     const relatedbook = await bookService.getBooksByCategoryId(book.categoryId);

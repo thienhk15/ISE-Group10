@@ -1,0 +1,106 @@
+<div id="mainBody">
+    <div class="container d-flex">
+        <div class="row">
+            <div class="span10">    
+                <h1>User profile</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col span3"><!--left col-->
+                <div class="text-center">
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                        alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div>
+
+            </div><!--/col-3-->
+            <div class="col span9">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        {{#with user}}
+                        <form class="form" action="/customer/user/edit" method="post" id="registrationForm">
+                            <div class="control-group" style="display: none;">
+                                <input type="text" class="form-control" name="id" id="id" value="{{id}}">
+                            </div>
+                            <div class="control-group">
+
+                                <div class="">
+                                    <label for="name">
+                                        <h4>Name</h4>
+                                    </label>
+                                    <input type="text" class="form-control" name="name" id="first_name"
+                                        placeholder="Your name" value="{{name}}">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+
+                                <div class="">
+                                    <label for="phone">
+                                        <h4>Phone</h4>
+                                    </label>
+                                    <input type="text" class="form-control" name="phone" id="phone"
+                                        placeholder="Your phone number" value="{{phone}}">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+
+                                <div>
+                                    <label for="email">
+                                        <h4>Email</h4>
+                                    </label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="Your email" value="{{email}}" readonly>
+                                </div>
+                            </div>
+                            <div class="control-group">
+
+                                <div>
+                                    <label for="dob">
+                                        <h4>Date of birth</h4>
+                                    </label>
+                                    <input type="date" class="form-control" name="dob" id="dob" value="{{dob}}" readonly>
+                                </div>
+                            </div>
+                            <div class="control-group">
+
+                                <div class="col-xs-6">
+                                    <label for="password">
+                                        <h4>New password</h4>
+                                    </label>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="Your password">
+                                </div>
+                            </div>
+                            <div class="control-group">
+
+                                <div class="col-xs-6">
+                                    <label for="oldPassword">
+                                        <h4>Verify</h4>
+                                    </label>
+                                    <input type="password" class="form-control" name="oldPassword" id="old_password"
+                                        placeholder="Your old password">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="span6">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit"><i
+                                            class="glyphicon glyphicon-ok-sign"></i>
+                                        Save</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                                        Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                        {{/with}}
+                    </div><!--/tab-pane-->
+                </div><!--/tab-pane-->
+            </div><!--span9-->
+        </div><!--row-->
+
+    </div><!--container-->
+</div><!--mainBody-->

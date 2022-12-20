@@ -25,6 +25,10 @@ class customerController{
     login(req, res){
         res.render('customer/login', {layout: 'customer-main'})
     }
+    logout(req, res){
+        res.clearCookie("user")
+        res.redirect('/')
+    }
     normal(req, res){
         res.render('customer/normal', {layout: 'customer-main'})
     }
