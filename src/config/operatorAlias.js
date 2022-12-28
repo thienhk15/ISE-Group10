@@ -15,5 +15,7 @@ module.exports = {
   $notBetween: Op.notBetween,
   $in: Op.in,
   $notIn: Op.notIn,
-  $substring: Op.substring
+  $substring: Op.substring,
+  $iLike: Op.iLike,
+  $like: Op.like
 }

@@ -29,9 +29,19 @@ router.get('/', async (req, res, next) => {
 
         const books = await bookService.getBooksLimit(limit*(page-1), limit);
 
-        const searchUrl='/customer/products/search';
+        const searchUrl = '/customer/products/search';
+        
+        const latestBooks = await bookService.getLatestBooks();
+
         let user = req.cookies["user"];
-        res.render('customer/home', { books: books, categories: categories, searchUrl: searchUrl, layout: 'customer-main', user, pagination_info});
+        res.render('customer/home', { 
+            books: books,
+            latestBooks,
+            categories, 
+            searchUrl: searchUrl, 
+            layout: 'customer-main', 
+            user, 
+            pagination_info,});
     } catch (error) {
         console.log(error);
     }

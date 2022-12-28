@@ -11,7 +11,8 @@ router.get('/:id', async (req, res, next) => {
     const book = await bookService.getBookById(id);
     const categories = await categoryService.getAllCategories();
     const relatedbook = await bookService.getBooksByCategoryId(book.categoryId);
-    res.render('customer/product_details', { book, relatedbook, categories, layout: 'customer-main' });
+    let user = req.cookies["user"];
+    res.render('customer/product_details', {user,book, relatedbook, categories, layout: 'customer-main' });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

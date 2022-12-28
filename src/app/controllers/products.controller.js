@@ -1,43 +1,42 @@
 const express = require("express");
 
 const router = express.Router();
-const config = require('../../config');
 const bookService = require('../../services/book.service');
 const qs = require('qs');
 const categoryService = require("../../services/category.service");
 var Paginator = require("paginator");
+const cartService = require("../../services/cart.service");
 const limit = 6;
 
 router.get('/', async (req, res, next) => {
     try {
-        const {sort: sortFilter } = req.query;
-        const pageAsNum = req.query.page? Number(req.query.page) : 1;
+        const { sort: sortFilter } = req.query;
+        const pageAsNum = req.query.page ? Number(req.query.page) : 1;
 
-        let page = 1
-        if(!Number.isNaN(pageAsNum)&&pageAsNum>0){
-            page = pageAsNum;
+        let pageNo = 1
+        if (!Number.isNaN(pageAsNum) && pageAsNum > 0) {
+            pageNo = pageAsNum;
         }
 
         let products = [];
-        if(sortFilter===''){
+        if (sortFilter === '') {
             const totalBooks = await bookService.searchBook(req.query);
             const countBooks = totalBooks.length;
-            var paginator = new Paginator(limit, 2);
-            var pagination_info = paginator.build(countBooks, page);
-            products = await bookService.searchBookByLimit(req.query, limit*(page-1), limit);
+            var paginator = new Paginator(limit, 6);
+            var pagination_info = paginator.build(countBooks, pageNo);
+            products = await bookService.searchBookByLimit(req.query, limit * (pageNo - 1), limit);
         }
-        else{
+        else {
             const totalBooks = await bookService.searchBookAndSorted(req.query);
             const countBooks = totalBooks.length;
-            var paginator = new Paginator(limit, 2);
-            var pagination_info = paginator.build(countBooks, page);
-            products = await bookService.searchBookAndSortedByLimit(req.query, limit*(page-1), limit);
+            var paginator = new Paginator(limit, 6);
+            var pagination_info = paginator.build(countBooks, pageNo);
+            products = await bookService.searchBookAndSortedByLimit(req.query, limit * (pageNo - 1), limit);
         }
-        console.log(pagination_info);
-
         const categories = await categoryService.getAllCategories();
-        const { sort, ...withoutSort } = req.query;
-        res.render('customer/products', {pagination_info, products, categories, originalUrl: `${req.baseUrl}?${qs.stringify(withoutSort)}` });
+        const { page, ...withoutSort } = req.query;
+        let user = req.cookies["user"];
+        res.render('customer/products', { user, pagination_info, products, categories, originalUrl: `${req.baseUrl}?${qs.stringify(withoutSort)}` });
     } catch (error) {
         console.log(error);
     }
@@ -48,7 +47,7 @@ router.get('/category/:id', async (req, res, next) => {
         const categoryId = req.params.id;
         const books = await bookService.getBooksByCategoryId(categoryId);
         const categories = await categoryService.getAllCategories();
-        res.render('customer/products', { products: books , categories, searchUrl: 'customer/products/search', originalUrl: req.baseUrl, layout: 'customer-main'});
+        res.render('customer/products', { products: books, categories, searchUrl: 'customer/products/search', originalUrl: req.baseUrl, layout: 'customer-main' });
     } catch (error) {
         console.log(error);
         res.status(500).json(error);
@@ -66,5 +65,6 @@ router.get('/search', async (req, res, next) => {
         res.status(500).json(error);
     }
 })
+
 
 module.exports = router;

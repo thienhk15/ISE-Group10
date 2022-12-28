@@ -47,6 +47,9 @@ class customerController{
     tac(req, res){
         res.render('customer/tac', {layout: 'customer-main'})
     }
+    profile(req,res){
+        res.render('customer/profile');
+    }
 }
 
 module.exports = new customerController;

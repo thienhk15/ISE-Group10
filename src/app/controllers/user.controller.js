@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Get user by Id
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const user = await userService.getUserById(id);
@@ -15,7 +15,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/edit', async (req, res, next) => {
+router.post('/edit', async (req, res) => {
   try {
     const body = req.body;
     const { id, oldPassword, ...data } = body;
@@ -24,6 +24,14 @@ router.post('/edit', async (req, res, next) => {
   } catch (error) {
     return res.status(500).send(error);
   }
-})
+});
+
+router.get('/:id/checkout', async (req, res) => {
+  try {
+    return res.render('customer/checkout');
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+});
 
 module.exports = router;
