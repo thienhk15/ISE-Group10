@@ -51,6 +51,21 @@ const cartService = {
             }
         })
     },
+    deleteCart:(id) => {
+        return new Promise(async (resolve, reject)=>{
+            try{
+                const cart = await Cart.destroy(
+                    {
+                      where: { userId: id }
+                    }
+                  );
+                return resolve(cart);
+            }
+            catch(err){
+                return reject(err);
+            }
+        })
+    }
 }
 
 module.exports=cartService;

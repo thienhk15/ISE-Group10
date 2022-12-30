@@ -10,6 +10,7 @@ const userController = require('../app/controllers/user.controller');
 const loginController = require('../app/controllers/login.controller')
 const registerController = require('../app/controllers/register.controller');
 const cartController = require('../app/controllers/cart.controller');
+const checkoutController = require('../app/controllers/checkout.controller');
 
 router.use('/compair', customerController.compair);
 router.use('/components', customerController.components);
@@ -31,5 +32,6 @@ router.use('/tac', customerController.tac);
 router.use('/products', productsController);
 router.use('/user', userController);
 router.use('/profile', customerController.profile);
+router.use('/checkout', checkoutController);
 
 module.exports = router;

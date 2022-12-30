@@ -51,9 +51,10 @@ router.post('/add-to-cart', async (req, res) => {
       const book_id_check = params.book_id;
       //console.log(JSON.stringify(params));
       const checkExistCart = await cartService.getCart(user.id);
+      console.log(checkExistCart);
       //console.log(checkExistCart);
-      if (checkExistCart.length == 0) {
-          const addedCart = await cartService.createNewCart(user.id, JSON.stringify(params));
+      if (checkExistCart == null) {
+          const addedCart = await cartService.createNewCart(user.id, "["+JSON.stringify(params)+"]");
           message = "Successful";
       }
       else {

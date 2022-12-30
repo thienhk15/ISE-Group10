@@ -25,7 +25,7 @@
             <th>Remove</th>
           </tr>
         </thead>
-        <tbody id = "listproduct" class="align-middle">
+        <tbody id="listproduct" class="align-middle">
           {{#each products}}
           <tr>
             <td class="d-flex justify-content-start"><img src="{{imageUrl}}" alt="" style="width: 50px;"> {{title}}
@@ -58,45 +58,45 @@
       </table>
     </div>
     <div class="col-lg-4">
-      <form class="mb-5" action="">
+      <form class="mb-5" method="post" action="/customer/checkout">
         <div>
-          <select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+          <select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" name="city">
             <option value="" selected>Chọn tỉnh thành</option>
           </select>
 
-          <select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+          <select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" name="district">
             <option value="" selected>Chọn quận huyện</option>
           </select>
 
-          <select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+          <select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm" name="ward">
             <option value="" selected>Chọn phường xã</option>
           </select>
-          <input type="text" name="fname" placeholder="Số nhà">
+          <input type="text" name="fname" placeholder="Số nhà" id = "fname" name="address">
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <div class="card border-secondary mb-5">
+          <div class="card-header bg-secondary border-0">
+            <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+          </div>
+          <div class="card-body">
+            <div id="summary1" class="d-flex justify-content-between mb-3 pt-1">
+              <h6 class="font-weight-medium">Subtotal</h6>
+              <h6 class="font-weight-medium">${{subTotal}}</h6>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h6 class="font-weight-medium">Shipping</h6>
+              <h6 class="font-weight-medium">Estimating</h6>
+            </div>
+          </div>
+          <div class="card-footer border-secondary bg-transparent">
+            <div id="summary2" class="d-flex justify-content-between mt-2">
+              <h5 class="font-weight-bold">Total</h5>
+              <h5 class="font-weight-bold">${{subTotal}} + shipping</h5>
+            </div>
+            <button type = "submit" class="btn btn-block btn-primary my-3 py-3" id = "submitCart" disabled="true">Proceed To Checkout</button>
+          </div>
+        </div>
       </form>
-      <div id="summary" class="card border-secondary mb-5">
-        <div class="card-header bg-secondary border-0">
-          <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
-        </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-between mb-3 pt-1">
-            <h6 class="font-weight-medium">Subtotal</h6>
-            <h6 class="font-weight-medium">${{subTotal}}</h6>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h6 class="font-weight-medium">Shipping</h6>
-            <h6 class="font-weight-medium">Estimating</h6>
-          </div>
-        </div>
-        <div class="card-footer border-secondary bg-transparent">
-          <div class="d-flex justify-content-between mt-2">
-            <h5 class="font-weight-bold">Total</h5>
-            <h5 class="font-weight-bold">${{subTotal}} + shipping</h5>
-          </div>
-          <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
-        </div>
-      </div>
     </div>
   </div>
 </div>
