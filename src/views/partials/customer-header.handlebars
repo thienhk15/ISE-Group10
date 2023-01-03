@@ -65,7 +65,7 @@
             </form>
         </div>
         <div class="col-xl-3 col-6 text-left text-lg-right">
-            <a href="" class="btn border">
+            <a href="/customer/orderstatus" class="btn border">
                 <i class="fas fa-heart text-primary"></i>
                 <span class="badge">0</span>
             </a>
@@ -88,9 +88,9 @@
             </a>
             <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
                 id="navbar-vertical">
-                <div class="navbar-nav w-100 overflow-hidden">
+                <div class="navbar-nav w-100 overflow-hidden dropdown" data-toggle="dropdown">
                     {{#each categories}}
-                    <a href="" class="nav-item nav-link">{{name}}</a>
+                    <a href="/customer/products?name=&cat={{id}}&sort=&page=" class="nav-item nav-link">{{name}}</a>
                     {{/each}}
                 </div>
             </nav>
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                         </form>
-                        <a href="/customer/home" class="nav-item nav-link active">Home</a>
+                        <a href="/customer/home" class="nav-item nav-link">Home</a>
                         <a href="/customer/products?name=&cat=0&sort=&page=" class="nav-item nav-link">Products</a>
                         <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                         <div class="nav-item dropdown">
@@ -141,22 +141,56 @@
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown d-block d-lg-none">
+                            <button class="btn btn-default dropdown-toggle px-0 text-dark" data-toggle="dropdown">
+                                Account
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                {{#if user}}
+                                <a href="/customer/user/profile" class="dropdown-item">Profile</a>
+                                <a href="/customer/logout" class="dropdown-item">Logout</a>
+                                {{else}}
+                                <a href="/customer/login" class="dropdown-item">Login</a>
+                                <a href="/customer/register" class="dropdown-item">Register</a>
+                                {{/if}}
+                            </div>
+                        </div>
                     </div>
-                    <div class="navbar-nav ml-auto py-0">
+                    <div class="navbar-nav ml-auto py-0 d-none d-lg-flex">
                         {{#if user}}
-                        <a href="/customer/logout" class="nav-item nav-link">Logout</a>
+                        {{#with user}}
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                                data-toggle="dropdown">
+                                {{#if avatarUrl}}
+                                <img class="img-fluid rounded-circle" width="40" height="40" src="{{avatarUrl}}">
+                                {{else}}
+                                <img class="img-fluid rounded-circle" width="40" height="40"
+                                    src="/customers/img/themes/images/profile_pics/user.png">
+                                {{/if}}
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right rounded-0 m-0">
+                                <a href="/customer/user/profile" class="dropdown-item">Profile</a>
+                                <a href="/customer/logout" class="dropdown-item">Logout</a>
+                            </div>
+                        </div>
+                        {{/with}}
                         {{else}}
                         <a href="/customer/login" class="nav-item nav-link">Login</a>
-                        {{/if}}
                         <a href="/customer/register" class="nav-item nav-link">Register</a>
-                        
+                        {{/if}}
+
                     </div>
                 </div>
             </nav>
             <div id="header-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="height: 410px;">
-                        <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                        <img class="img-fluid"
+                            src="https://media.istockphoto.com/id/120004828/photo/books-stacked-on-table-at-bookstore.jpg?s=612x612&w=0&k=20&c=NtNzx4xdP-6Dd3eomX2mf_-w2-JJhYbndBwLFRdCetY="
+                            alt="Image">
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order

@@ -1,7 +1,5 @@
 const express = require("express");
-const { Sequelize, DataTypes } = require('sequelize');
 const router = express.Router();
-const config = require('../../config');
 const userService = require('../../services/user.service');
 const bcrypt = require('bcryptjs')
 const { uuid } = require('uuidv4');

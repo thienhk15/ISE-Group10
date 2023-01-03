@@ -1,12 +1,9 @@
 const express = require("express");
 
 const router = express.Router();
-const config = require('../../config');
 const userService = require('../../services/user.service');
 const bcrypt = require('bcryptjs')
 const { uuid } = require('uuidv4');
-const qs = require('qs');
-const { render } = require("node-sass");
 const categoryService = require("../../services/category.service");
 
 const validateEmail = (email) => {
@@ -18,7 +15,6 @@ const validateEmail = (email) => {
 router.get("/", async (req, res) => {
     try {
         const categories = await categoryService.getAllCategories();
-        console.log(req.body);
         res.render('customer/register', {layout: 'customer-main', categories})
     }
     catch(error){
@@ -30,11 +26,9 @@ router.post("/", async (req, res) => {
     try {
         const categories = await categoryService.getAllCategories();
         let {name, email, pass1, pass2, dob, phone} = req.body;
-        console.log(req.body);
         let err = [];
         const newUser = await userService.checkIfExists(email);
         var patt = new RegExp(/^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/);
-        console.log(newUser);
         if(!name||!email||!pass1||!pass2||!dob||!phone){
             err.push({message: "Please Enter all fields", check: "alert-dangershow"});
         }
@@ -60,8 +54,6 @@ router.post("/", async (req, res) => {
             //Validation has passed
             let hashPassword = await bcrypt.hash(pass2, 10);
             let hashID = await uuid();
-            console.log(hashID);
-            console.log(hashPassword);
             const addedUser = userService.createNewUser(hashID, name, email, hashPassword, dob, phone);
             err.push({message: "Successful", check: "alert-info fade in"})
             res.render("customer/register", {err, categories});

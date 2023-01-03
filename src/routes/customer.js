@@ -11,8 +11,9 @@ const loginController = require('../app/controllers/login.controller')
 const registerController = require('../app/controllers/register.controller');
 const cartController = require('../app/controllers/cart.controller');
 const checkoutController = require('../app/controllers/checkout.controller');
+const orderstatusController = require('../app/controllers/orderstatus.controller');
+const orderdetailsController = require('../app/controllers/order_details.controller');
 
-router.use('/compair', customerController.compair);
 router.use('/components', customerController.components);
 router.use('/contact', customerController.contact);
 router.use('/cart', cartController)
@@ -20,8 +21,7 @@ router.use('/faq', customerController.faq);
 router.use('/forgetpass', customerController.forgetpass);
 router.use('/home', homeController);
 router.use('/legal_notice', customerController.legal_notice);
-router.post('/login/find', loginController.checkLogin);
-router.use('/login', customerController.login);
+router.use('/login', loginController);
 router.get('/logout', customerController.logout);
 router.use('/register', registerController);
 router.use('/normal', customerController.normal);
@@ -33,5 +33,7 @@ router.use('/products', productsController);
 router.use('/user', userController);
 router.use('/profile', customerController.profile);
 router.use('/checkout', checkoutController);
+router.use('/orderstatus', orderstatusController);
+router.use('/order_details', orderdetailsController);
 
 module.exports = router;

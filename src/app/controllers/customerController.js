@@ -1,9 +1,5 @@
 class customerController{
     // [GET] /news
-    
-    compair(req, res){
-        res.render('customer/compair', {layout: 'customer-main'})
-    }
     components(req, res){
         res.render('customer/components', {layout: 'customer-main'})
     }

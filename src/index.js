@@ -6,7 +6,6 @@ const path = require('path');
 const route = require('./routes');
 const { mainModule } = require('process');
 const config = require('./config');
-console.log('env: ', process.env.POSTGRESQL_URI);
 const db = require('./config/database');
 const cookieParser = require('cookie-parser');
 

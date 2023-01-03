@@ -1,12 +1,13 @@
 const User = require('../models/user.model');
 const db = require('../config/database');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const _ = require('lodash');
 
 const userService = {
     getAllUsers: () => {
         return new Promise(async (resolve, reject) => {
             try {
-                const users = await User.findAll({raw: true});
+                const users = await User.findAll({ raw: true });
                 return resolve(users);
             } catch (error) {
                 return reject(error);
@@ -44,64 +45,82 @@ const userService = {
             }
         })
     },
-    findUser: (user, pass) => {
+    findUser: (email, pass) => {
         return new Promise(async (resolve, reject) => {
             try {
-                const users = await User.findOne({ where: { email: user } });
-                if (users == null) 
-                    return reject(null);
-                else {
-                    // console.log(5555555555555555);
-                  bcrypt.compare(pass, users.password)
+                const user = await User.findOne({ where: { email: email }, raw: true });
+                console.log('user: ', user);
+                if (_.isEmpty(user)) {
+                    return reject(Error('Wrong email or password'));
+                }
+                // console.log(5555555555555555);
+                bcrypt.compare(pass, user.password)
                     .then((result) => {
-                        if(result == true)
-                            return resolve(users);
-                        else
-                            return reject(null);
+                        if (!result) {
+                            return reject(Error('Wrong email or password'));
+                        }
+                        return resolve(user);
                     })
                     .catch((err) => {
                         return reject(err);
                     });
-                }
+
             } catch (error) {
                 return reject(error);
             }
         })
     },
 
-    checkIfExists: (email) =>{
+    checkIfExists: (email) => {
         return new Promise(async (resolve, reject) => {
-            try{
+            try {
                 const user = await User.findOne({
-                    where:{
-                        email:{
-                            $eq:email
+                    where: {
+                        email: {
+                            $eq: email
                         }
                     },
-                    raw:true
+                    raw: true
                 });
                 return resolve(user);
-            } catch(error){
+            } catch (error) {
                 return reject(error)
             }
         })
     },
     createNewUser: (hashID, newName, newEmail, newPass, newDob, newPhone) => {
         return new Promise(async (resolve, reject) => {
-            try{
+            try {
                 const d = new Date();
                 const user = await User.create({
-                    id: hashID, 
-                    name: newName, 
-                    isConfirmed: false, 
-                    dob: newDob, 
-                    phone: newPhone, 
+                    id: hashID,
+                    name: newName,
+                    isConfirmed: false,
+                    dob: newDob,
+                    phone: newPhone,
                     isAdmin: false,
                     password: newPass,
                     email: newEmail,
                     avatarUrl: "https://seud.org/wp-content/uploads/2020/06/avatar-nobody.png",
                     createAt: d,
                     updateAt: null
+                });
+                return resolve(user);
+            } catch (error) {
+                return reject(error)
+            }
+        })
+    },
+    findUserById: (id) =>{
+        return new Promise(async (resolve, reject) => {
+            try{
+                const user = await User.findOne({
+                    where:{
+                        id:{
+                            $eq:id
+                        }
+                    },
+                    raw:true
                 });
                 return resolve(user);
             } catch(error){
