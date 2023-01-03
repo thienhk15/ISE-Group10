@@ -33,7 +33,6 @@ router.get('/', async (req, res, next) => {
         const latestBooks = await bookService.getLatestBooks();
 
         let user = req.cookies["user"];
-        console.log('user: ', user);
         res.render('customer/home', { 
             books: books,
             latestBooks,

@@ -1,8 +1,6 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/database');
 
-const User = require("./user.model");
-
 const Order = db.define('Order',
     {
         id:{
@@ -34,11 +32,7 @@ const Order = db.define('Order',
         },
         createdBy: {
             field:'created_by',
-            type: DataTypes.STRING,
-        },
-        status: {
-            field: 'status',
-            type: DataTypes.SMALLINT
+            type: DataTypes.STRING
         }
     },
     {
