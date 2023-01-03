@@ -1,408 +1,206 @@
-<div id="mainBody">
-	<div class="container">
-	<div class="row">
-<!-- Sidebar ================================================== -->
-	<div id="sidebar" class="span3">
-		<div class="well well-small"><a id="myCart" href="product_summary"><img src="/customers/img/themes/images/ico-cart.png" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a></div>
-		<ul id="sideManu" class="nav nav-tabs nav-stacked">
-			<li class="subMenu open"><a> ELECTRONICS [230]</a>
-				<ul>
-				<li><a class="active" href="products"><i class="icon-chevron-right"></i>Cameras (100) </a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Computers, Tablets & laptop (30)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Mobile Phone (80)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Sound & Vision (15)</a></li>
-				</ul>
-			</li>
-			<li class="subMenu"><a> CLOTHES [840] </a>
-			<ul style="display:none">
-				<li><a href="products"><i class="icon-chevron-right"></i>Women's Clothing (45)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Women's Shoes (8)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Women's Hand Bags (5)</a></li>	
-				<li><a href="products"><i class="icon-chevron-right"></i>Men's Clothings  (45)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Men's Shoes (6)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Kids Clothing (5)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Kids Shoes (3)</a></li>												
-			</ul>
-			</li>
-			<li class="subMenu"><a>FOOD AND BEVERAGES [1000]</a>
-				<ul style="display:none">
-				<li><a href="products"><i class="icon-chevron-right"></i>Angoves  (35)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>Bouchard Aine & Fils (8)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>French Rabbit (5)</a></li>	
-				<li><a href="products"><i class="icon-chevron-right"></i>Louis Bernard  (45)</a></li>
-				<li><a href="products"><i class="icon-chevron-right"></i>BIB Wine (Bag in Box) (8)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Other Liquors & Wine (5)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Garden (3)</a></li>												
-				<li><a href="products"><i class="icon-chevron-right"></i>Khao Shong (11)</a></li>												
-			</ul>
-			</li>
-			<li><a href="products">HEALTH & BEAUTY [18]</a></li>
-			<li><a href="products">SPORTS & LEISURE [58]</a></li>
-			<li><a href="products">BOOKS & ENTERTAINMENTS [14]</a></li>
-		</ul>
-		<br/>
-		  <div class="thumbnail">
-			<img src="/customers/img/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera"/>
-			<div class="caption">
-			  <h5>Panasonic</h5>
-				<h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-			</div>
-		  </div><br/>
-			<div class="thumbnail">
-				<img src="/customers/img/themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
-				<div class="caption">
-				  <h5>Kindle</h5>
-				    <h4 style="text-align:center"><a class="btn" href="product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
-				</div>
-			  </div><br/>
-			<div class="thumbnail">
-				<img src="/customers/img/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
-				<div class="caption">
-				  <h5>Payment Methods</h5>
-				</div>
-			  </div>
-	</div>
-<!-- Sidebar end=============================================== -->
-	<div class="span9">
-    <ul class="breadcrumb">
-    <li><a href="index">Home</a> <span class="divider">/</span></li>
-    <li><a href="../products">Products</a> <span class="divider">/</span></li>
-    <li class="active">product Details</li>
-    </ul>	
-	{{#with book}}
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="/customer/home">Home</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0"><a href="/customer/products?name=&cat=0&sort=&page=">All Products</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Product Detail</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
 
-	<div class="row">	  
-			<div id="gallery" class="span3">
-            <a href="/customers/img/themes/images/products/large/f1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
-				<img src="{{imageUrl}}" style="width:100%" alt="{{title}}"/>
-            </a>
-			<div id="differentview" class="moreOptopm carousel slide">
-                <div class="carousel-inner">
-                  <div class="item active">
-                   <a href="/customers/img/themes/images/products/large/f1.jpg"> <img style="width:29%" src="/customers/img/themes/images/products/large/f1.jpg" alt=""/></a>
-                   <a href="/customers/img/themes/images/products/large/f2.jpg"> <img style="width:29%" src="/customers/img/themes/images/products/large/f2.jpg" alt=""/></a>
-                   <a href="/customers/img/themes/images/products/large/f3.jpg" > <img style="width:29%" src="/customers/img/themes/images/products/large/f3.jpg" alt=""/></a>
-                  </div>
-                  <div class="item">
-                   <a href="/customers/img/themes/images/products/large/f3.jpg" > <img style="width:29%" src="/customers/img/themes/images/products/large/f3.jpg" alt=""/></a>
-                   <a href="/customers/img/themes/images/products/large/f1.jpg"> <img style="width:29%" src="/customers/img/themes/images/products/large/f1.jpg" alt=""/></a>
-                   <a href="/customers/img/themes/images/products/large/f2.jpg"> <img style="width:29%" src="/customers/img/themes/images/products/large/f2.jpg" alt=""/></a>
-                  </div>
-                </div>
-              <!--  
-			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
-			  -->
-              </div>
-			  
-			 <div class="btn-toolbar">
-			  <div class="btn-group">
-				<span class="btn"><i class="icon-envelope"></i></span>
-				<span class="btn" ><i class="icon-print"></i></span>
-				<span class="btn" ><i class="icon-zoom-in"></i></span>
-				<span class="btn" ><i class="icon-star"></i></span>
-				<span class="btn" ><i class=" icon-thumbs-up"></i></span>
-				<span class="btn" ><i class="icon-thumbs-down"></i></span>
-			  </div>
-			</div>
-			</div>
-			<div class="span6">
-				<h3>{{title}}  </h3>
-				<hr class="soft"/>
-				<form class="form-horizontal qtyFrm">
-				  <div class="control-group">
-					<label class="control-label"><span>${{price}}</span></label>
-					<div class="controls">
-					<input type="number" class="span1" placeholder="Qty."/>
-					  <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
-					</div>
-				  </div>
-				</form>
-				
-				<hr class="soft"/>
-				<h4>100 items in stock</h4>
-				<!--<form class="form-horizontal qtyFrm pull-right">
-				  <div class="control-group">
-					<label class="control-label"><span>Color</span></label>
-					<div class="controls">
-					  <select class="span2">
-						  <option>Black</option>
-						  <option>Red</option>
-						  <option>Blue</option>
-						  <option>Brown</option>
-						</select>
-					</div>
-				  </div>
-				</form>-->
-				<hr class="soft clr"/>
-				<p>
-				{{description}}
-				
-				</p>
-				<a class="btn btn-small pull-right" href="#detail">More Details</a>
-				<br class="clr"/>
-			<a href="#" name="detail"></a>
-			<hr class="soft"/>
-			</div>
-			
-			<div class="span9">
-            <ul id="productDetail" class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab">Product Details</a></li>
-              <li><a href="#profile" data-toggle="tab">Related Products</a></li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade" id="home">
-			  <h4>Product Information</h4>
-                <table class="table table-bordered">
-				<tbody>
-				<tr class="techSpecRow"><th colspan="2">Product Details</th></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Brand: </td><td class="techSpecTD2">Fujifilm</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Model:</td><td class="techSpecTD2">FinePix S2950HD</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Released on:</td><td class="techSpecTD2"> 2011-01-28</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Dimensions:</td><td class="techSpecTD2"> 5.50" h x 5.50" w x 2.00" l, .75 pounds</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Display size:</td><td class="techSpecTD2">3</td></tr>
-				</tbody>
-				</table>
-				
-				<h5>Features</h5>
-				<p>
-				14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2 ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery and memory card).<br/>
-				OND363338
-				</p>
 
-				<h4>Editorial Reviews</h4>
-				<h5>Manufacturer's Description </h5>
-				<p>
-				With a generous 18x Fujinon optical zoom lens, the S2950 really packs a punch, especially when matched with its 14 megapixel sensor, large 3.0" LCD screen and 720p HD (30fps) movie capture.
-				</p>
-
-				<h5>Electric powered Fujinon 18x zoom lens</h5>
-				<p>
-				The S2950 sports an impressive 28mm – 504mm* high precision Fujinon optical zoom lens. Simple to operate with an electric powered zoom lever, the huge zoom range means that you can capture all the detail, even when you're at a considerable distance away. You can even operate the zoom during video shooting. Unlike a bulky D-SLR, bridge cameras allow you great versatility of zoom, without the hassle of carrying a bag of lenses.
-				</p>
-				<h5>Impressive panoramas</h5>
-				<p>
-				With its easy to use Panoramic shooting mode you can get creative on the S2950, however basic your skills, and rest assured that you will not risk shooting uneven landscapes or shaky horizons. The camera enables you to take three successive shots with a helpful tool which automatically releases the shutter once the images are fully aligned to seamlessly stitch the shots together in-camera. It's so easy and the results are impressive.
-				</p>
-
-				<h5>Sharp, clear shots</h5>
-				<p>
-				Even at the longest zoom settings or in the most challenging of lighting conditions, the S2950 is able to produce crisp, clean results. With its mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to reduce the blurring effects of both hand-shake and subject movement to provide superb pictures.
-				</p>
-              </div>
-		<div class="tab-pane fade active in" id="profile">
-		<div id="myTab" class="pull-right">
-		 <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
-		 <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
-		</div>
-		<br class="clr"/>
-		<hr class="soft"/>
-		<div class="tab-content">
-			<div class="tab-pane" id="listView">
-				<div class="row">	  
-					<div class="span2">
-						<img src="/customers/img/themes/images/products/4.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-					<form class="form-horizontal qtyFrm">
-					<h3> $222.00</h3>
-					<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-					</label><br/>
-					<div class="btn-group">
-					  <a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-					  <a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-					 </div>
-						</form>
-					</div>
-			</div>
-			<hr class="soft"/>
-			<div class="row">	  
-					<div class="span2">
-						<img src="/customers/img/themes/images/products/5.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-					<form class="form-horizontal qtyFrm">
-						<h3> $222.00</h3>
-						<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-						</label><br/>
-						<div class="btn-group">
-						<a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-						<a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-						</div>
-					</form>
-					</div>
-			</div>
-			<hr class="soft"/>
-			<div class="row">	  
-					<div class="span2">
-					<img src="/customers/img/themes/images/products/6.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-					<form class="form-horizontal qtyFrm">
-					<h3> $222.00</h3>
-					<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-					</label><br/>
-				<div class="btn-group">
-				  <a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-				  <a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-				 </div>
-						</form>
-					</div>
-			</div>
-			<hr class="soft"/>
-			<div class="row">	  
-					<div class="span2">
-					<img src="/customers/img/themes/images/products/7.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-						<form class="form-horizontal qtyFrm">
-						<h3> $222.00</h3>
-						<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-						</label><br/>
-						<div class="btn-group">
-						<a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-						<a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-						</div>
-						</form>
-					</div>
-			</div>
-			
-			<hr class="soft"/>
-			<div class="row">	  
-					<div class="span2">
-					<img src="/customers/img/themes/images/products/8.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-						<form class="form-horizontal qtyFrm">
-						<h3> $222.00</h3>
-						<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-						</label><br/>
-						<div class="btn-group">
-						<a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-						<a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-						</div>
-						</form>
-					</div>
-			</div>
-			<hr class="soft"/>
-				<div class="row">	  
-					<div class="span2">
-					<img src="/customers/img/themes/images/products/9.jpg" alt=""/>
-					</div>
-					<div class="span4">
-						<h3>New | Available</h3>				
-						<hr class="soft"/>
-						<h5>Product Name </h5>
-						<p>
-						Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies - 
-						that is why our goods are so popular..
-						</p>
-						<a class="btn btn-small pull-right" href="product_details">View Details</a>
-						<br class="clr"/>
-					</div>
-					<div class="span3 alignR">
-						<form class="form-horizontal qtyFrm">
-						<h3> $222.00</h3>
-						<label class="checkbox">
-						<input type="checkbox">  Adds product to compair
-						</label><br/>
-						<div class="btn-group">
-						<a href="product_details" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-						<a href="product_details" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-						</div>
-						</form>
-					</div>
-			</div>
-			<hr class="soft"/>
-			{{/with}}
-		</div>
-			<div class="tab-pane active" id="blockView">
-				<ul class="thumbnails">
-					{{#each relatedbook}}
-					<li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details/{{id}}" ><img src="{{imageUrl}}" alt="" /></a>
-                                    <div class="caption">
-                                        <h5>{{title}}</h5>
-                                        <p>
-                                            {{description}}
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details/{{id}}"> <i class="icon-zoom-in"></i></a> <a
-                                                class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-                                                href="#">{{price}}</a></h4>
-                                    </div>
-                                </div>
-                            </li>
-					{{/each}}
-				  </ul>
-			<hr class="soft"/>
-			</div>
-		</div>
-				<br class="clr">
-					 </div>
-		</div>
+<!-- Shop Detail Start -->
+{{#with book}}
+<div class="container-fluid py-5">
+  <div class="row px-xl-5">
+    <div class="col-lg-5 pb-5">
+      <div id="product-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner border">
+          <div class="carousel-item active">
+            <img class="w-100 h-100" src="{{imageUrl}}" alt="Image">
           </div>
-	</div>
+        </div>
+        <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+          <i class="fa fa-2x fa-angle-left text-dark"></i>
+        </a>
+        <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+          <i class="fa fa-2x fa-angle-right text-dark"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-7 pb-5">
+      <h3 class="font-weight-semi-bold">{{title}}</h3>
+      <div class="d-flex mb-3">
+        <div class="text-primary mr-2">
+          <small class="fas fa-star"></small>
+          <small class="far fa-star"></small>
+          <small class="fas fa-star"></small>
+          <small class="far fa-star checked"></small>
+          <small class="far fa-star "></small>
+        </div>
+        <small class="pt-1">(50 Reviews)</small>
+      </div>
+      <h3 class="font-weight-semi-bold mb-4">{{price}} &#8363;</h3>
+      <div class="d-flex align-items-center mb-4 pt-2">
+        <button class="btn btn-primary px-3" value="{{id}}" onclick="addPro(this.value)"><i
+            class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
+      </div>
+      <div class="d-flex pt-2">
+        <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
+        <div class="d-inline-flex">
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row px-xl-5">
+    <div class="col">
+      <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-pane-1">
+          <h4 class="mb-3">Product Description</h4>
+          <p>{{description}}</p>
+        </div>
+        <div class="tab-pane fade" id="tab-pane-2">
+          <h4 class="mb-3">Additional Information</h4>
+          <table class="table table-bordered col-6">
+            <tbody>
+              <tr>
+                <td>Author</td>
+                <td>{{author}}</td>
+              </tr>
+              <tr>
+                <td>Publisher</td>
+                <td>{{publisher}}</td>
+              </tr>
+              <tr>
+                <td>Release year</td>
+                <td>{{releaseYear}}</td>
+              </tr>
+              <tr>
+                <td>Language</td>
+                <td>{{language}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="tab-pane-3">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
+              <div class="media mb-4">
+                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                <div class="media-body">
+                  <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                  <div class="text-primary mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no
+                    at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="mb-4">Leave a review</h4>
+              <small>Your email address will not be published. Required fields are marked *</small>
+              <div class="d-flex my-3">
+                <p class="mb-0 mr-2">Your Rating * :</p>
+                <div class="text-primary">
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <form>
+                <div class="form-group">
+                  <label for="message">Your Review *</label>
+                  <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="name">Your Name *</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email *</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group mb-0">
+                  <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div> </div>
+{{/with}}
+<!-- Shop Detail End -->
+
+
+<!-- Products Start -->
+<div class="container-fluid py-5">
+  <div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
+  </div>
+  <div class="row px-xl-5">
+    <div class="col-12">
+      <div class="col-lg-9 col-md-12">
+        <div class="row pb-3">
+          {{#each relatedBooks}}
+          <span class="card product-item border-0 mb-4">
+            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+              <img class="img-fluid w-100" src="{{imageUrl}}" alt="">
+            </div>
+            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+              <h6 class="text-truncate mb-3">{{title}}</h6>
+              <div class="d-flex justify-content-center">
+                <h6>{{price}} &#8363;</h6>
+              </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between bg-light border">
+              <a href="/customer/product_details/{{id}}" class="btn btn-sm text-dark p-0"><i
+                  class="fas fa-eye text-primary mr-1"></i>View
+                Detail</a>
+              <button class="btn btn-sm text-dark p-0 submitBtn" value="{{id}}" onclick="addPro(this.value)">
+                <i class="fas fa-shopping-cart text-primary mr-1" name="book_id" value="{{id}}"></i>Add To
+                Cart
+              </button>
+            </div>
+
+          </span>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- Products End -->

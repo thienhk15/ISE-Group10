@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/database');
 
+const Order = require("./order.model");
+
 const User = db.define('User',
     {
         id: {

@@ -1,147 +1,49 @@
-<div id="carouselBlk">
-		<div id="myCarousel" class="carousel slide">
-			<div class="carousel-inner">
-				<div class="item">
-					<div class="container">
-						<a href="/customer/register"><img style="width:100%" src="/customers/img/themes/images/carousel/1.png"
-								alt="special offers" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="item active">
-					<div class="container">
-						<a href="/customer/register"><img style="width:100%" src="/customers/img/themes/images/carousel/2.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="/customer/register"><img src="/customers/img/themes/images/carousel/3.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="/customer/register"><img src="/customers/img/themes/images/carousel/4.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="/customer/register"><img src="/customers/img/themes/images/carousel/5.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="/customer/register"><img src="/customers/img/themes/images/carousel/6.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-	<div id="mainBody">
-		<div class="container">
-			<div class="row">
-				<!-- Sidebar ================================================== -->
-				<div id="sidebar" class="span3">
-					<div class="well well-small"><a id="myCart" href="/customer/product_summary"><img
-								src="/customers/img/themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
-								class="badge badge-warning pull-right">$155.00</span></a></div>
-					<ul id="sideMenu" class="nav nav-tabs nav-stacked">
-						<li class="subMenu open">
-							<a href="/customer/products">All</a>
-						</li>
-						{{#each categories}}
-						<li class="subMenu open">
-							<a href="/customer/products/category/{{id}}">{{name}}</a>
-						</li>
-						{{/each}}
-					</ul>
-					<br />
-					<div class="thumbnail">
-						<img src="/customers/img/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera" />
-						<div class="caption">
-							<h5>Panasonic</h5>
-							<h4 style="text-align:center"><a class="btn" href="/customer/product_details"> <i
-										class="icon-zoom-in"></i></a> <a class="btn" href="/customer/#">Add to <i
-										class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-									href="/customer/#">$222.00</a></h4>
-						</div>
-					</div><br />
-					<div class="thumbnail">
-						<img src="themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
-						<div class="caption">
-							<h5>Kindle</h5>
-							<h4 style="text-align:center"><a class="btn" href="/customer/product_details"> <i
-										class="icon-zoom-in"></i></a> <a class="btn" href="/customer/#">Add to <i
-										class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-									href="/customer/#">$222.00</a></h4>
-						</div>
-					</div><br />
-					<div class="thumbnail">
-						<img src="/customers/img/themes/images/payment_methods.png" title="Bootshop Payment Methods"
-							alt="Payments Methods">
-						<div class="caption">
-							<h5>Payment Methods</h5>
-						</div>
-					</div>
-				</div>
-				<!-- Sidebar end=============================================== -->
-				<div class="span9">
-					<h4>Latest Products </h4>
-					<ul class="thumbnails">
-						{{#each books}}
-							<li class="span3">
-							<div class="thumbnail">
-								<a href="/customer/product_details/{{id}}"><img src="{{imageUrl}}" alt="" /></a>
-								<div class="caption">
-									<h5>{{title}}</h5>
-									<p>
-										Lorem Ipsum is simply dummy text.
-									</p>
-
-									<h4 style="text-align:center"><a class="btn" href="/customer/product_details/{{id}}"> <i
-												class="icon-zoom-in"></i></a> <a class="btn" href="/customer/#">Add to <i
-												class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-											href="/customer/#">{{price}}</a></h4>
-								</div>
-							</div>
-						</li>
-						{{else}}
-							<p>No books available</p>
-						{{/each}}
-					</ul>
-
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+	<div class="row px-xl-5 pb-3">
+		{{#each categories}}
+		<div class="col-lg-4 col-md-6 pb-1 mb-3 w-100">
+			<div class="card hovereffect">
+				<img class="img-fluid" src="{{imgUrl}}" alt="">
+				<div class="overlay">
+					<a class="info">{{name}}</a>
 				</div>
 			</div>
 		</div>
+		{{/each}}
 	</div>
+</div>
+<!-- Categories End -->
+
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+	<div class="text-center mb-4">
+		<h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
+	</div>
+	<div class="row px-xl-3 pb-3 justify-content-around">
+		{{#each latestBooks}}
+		<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+			<div class="card product-item border-0 mb-4">
+				<div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+					<img class="img-fluid w-100" src="{{imageUrl}}" alt="">
+				</div>
+				<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+					<h6 class="text-truncate mb-3">{{title}}</h6>
+					<div class="d-flex justify-content-center">
+						<h6>{{price}}</h6>
+						<!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
+					</div>
+				</div>
+				<div class="card-footer d-flex justify-content-between bg-light border">
+					<a href="/customer/product_details/{{id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
+						Detail</a>
+					<button class="btn btn-sm text-dark p-0 submitBtn" value="{{id}}" onclick="addPro(this.value)">
+						<i class="fas fa-shopping-cart text-primary mr-1" name="book_id" value="{{id}}"></i>Add To Cart
+					</button>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>
+<!-- Products End -->

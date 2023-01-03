@@ -1,9 +1,5 @@
 class customerController{
     // [GET] /news
-    
-    compair(req, res){
-        res.render('customer/compair', {layout: 'customer-main'})
-    }
     components(req, res){
         res.render('customer/components', {layout: 'customer-main'})
     }
@@ -25,6 +21,10 @@ class customerController{
     login(req, res){
         res.render('customer/login', {layout: 'customer-main'})
     }
+    logout(req, res){
+        res.clearCookie("user")
+        res.redirect('/')
+    }
     normal(req, res){
         res.render('customer/normal', {layout: 'customer-main'})
     }
@@ -42,6 +42,9 @@ class customerController{
     }
     tac(req, res){
         res.render('customer/tac', {layout: 'customer-main'})
+    }
+    profile(req,res){
+        res.render('customer/profile');
     }
 }
 

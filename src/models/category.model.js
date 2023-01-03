@@ -11,6 +11,11 @@ const Category = db.define('Category',
         },
         name: {
             type: DataTypes.STRING,
+        },
+        imgUrl: {
+            field: 'img_url',
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {
