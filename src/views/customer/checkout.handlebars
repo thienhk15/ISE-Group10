@@ -1,6 +1,6 @@
 <!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
-  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
     <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
     <div class="d-inline-flex">
       <p class="m-0"><a href="">Home</a></p>
@@ -25,13 +25,13 @@
           {{#each products}}
           <div class="d-flex justify-content-between">
             <p>{{title}}</p>
-            <p>{{price}}x{{quantity}} = {{total}}</p>
+            <p>{{price}}x{{quantity}} = {{total}}&#8363;</p>
           </div>
           {{/each}}
           <hr class="mt-0">
           <div class="d-flex justify-content-between mb-3 pt-1">
             <h6 class="font-weight-medium">Subtotal</h6>
-            <h6 class="font-weight-medium">${{subTotal}}</h6>
+            <h6 class="font-weight-medium">${{subTotal}}&#8363;</h6>
           </div>
           <div class="d-flex justify-content-between">
             <h6 class="font-weight-medium">Shipping</h6>
@@ -45,7 +45,7 @@
         <div class="card-footer border-secondary bg-transparent">
           <div class="d-flex justify-content-between mt-2">
             <h5 class="font-weight-bold">Total</h5>
-            <h5 class="font-weight-bold">${{subTotal}} + Estimating Shipping</h5>
+            <h5 class="font-weight-bold">${{subTotal}}&#8363; + Estimating Shipping</h5>
           </div>
         </div>
       </div>

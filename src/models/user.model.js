@@ -49,6 +49,11 @@ const User = db.define('User',
             field: 'updated_at',
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
+        },
+        isBanned: {
+            field: 'is_banned',
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {

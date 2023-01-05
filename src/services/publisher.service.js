@@ -1,6 +1,19 @@
 const Publisher = require('../models/publisher.model');
 
 const publisherService = {
+  getAllPublisher: () => {
+    return new Promise((resolve, reject) => {
+      try {
+        const publishers = Publisher.findAll({
+          raw: true
+        });
+        return resolve(publishers);
+      } catch (error) {
+        return reject(error);
+      }
+    })
+  },
+
   getPublisherById: (id) => {
     return new Promise((resolve, reject) => {
       try {
@@ -12,7 +25,6 @@ const publisherService = {
         });
         return resolve(publisher);
       } catch (error) {
-        console.log(error);
         return reject(error);
       }
     })
