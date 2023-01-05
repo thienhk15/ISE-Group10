@@ -37,7 +37,6 @@
 	<script src="/customers/lib/easing/easing.min.js"></script>
 	<script src="/customers/lib/owlcarousel/owl.carousel.min.js"></script>
 
-
 	<!-- Contact Javascript File -->
 	<script src="/customers/mail/jqBootstrapValidation.min.js"></script>
 	<script src="/customers/mail/contact.js"></script>
@@ -46,7 +45,7 @@
 	<script src="/customers/js/main.js"></script>
 
 	<script src="/customers/js/pagination.js"></script>
-
+	
 	<script>
 		function addPro(id) {
 			$.ajax({
@@ -151,6 +150,146 @@
 		};
 	</script>
 	<script>
+		$("#specialButton").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+		$("#specialButton1").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+		$("#specialButton2").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+		$("#specialButton3").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+		$("#specialButton4").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+		$("#specialButton5").click(function () {
+			var data1 = $(this).data('params').split(',');
+			const from = data1[0];
+			const to = data1[1];
+			const newHref = location.href + "&from=" + from + "&to=" + to;
+			$.ajax({
+				method: 'get',
+				url: newHref,
+				dataType: 'json',
+				data: {from: from, 
+						to: to},
+				success: function (data) {
+					alert("success")
+				},
+				complete: function (data) {
+					$.get(newHref, function (data) {
+						$('#showProduct').empty().append($(data).find('#showProduct').children());
+					});
+				}
+			});
+			e = e || window.event;
+			e.preventDefault();
+		});
+	</script>
+	<script>
 		var button = document.getElementById("submitCart");
 		var citis = document.getElementById("city");
 		var districts = document.getElementById("district");
@@ -161,153 +300,6 @@
 				button.disabled = true;
 			}
 			else {
-				button.disabled = false;
-			}
-		}
-		citis.addEventListener('keyup', compare);
-		districts.addEventListener('keyup', compare);
-		wards.addEventListener('keyup', compare);
-		fname.addEventListener('keyup', compare);
-	</script>
-
-	<script>
-		var citis = document.getElementById("city");
-		var districts = document.getElementById("district");
-		var wards = document.getElementById("ward");
-		var Parameter = {
-			url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-			method: "GET",
-			responseType: "application/json",
-		};
-		var promise = axios(Parameter);
-		promise.then(function (result) {
-			renderCity(result.data);
-		});
-
-		function renderCity(data) {
-			for (const x of data) {
-				citis.options[citis.options.length] = new Option(x.Name, x.Name);
-			}
-			citis.onchange = function () {
-				district.length = 1;
-				ward.length = 1;
-				if (this.value != "") {
-					const result = data.filter(n => n.Name === this.value);
-
-					for (const k of result[0].Districts) {
-						district.options[district.options.length] = new Option(k.Name, k.Name);
-					}
-				}
-			};
-			district.onchange = function () {
-				ward.length = 1;
-				const dataCity = data.filter((n) => n.Name === citis.value);
-				if (this.value != "") {
-					const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
-
-					for (const w of dataWards) {
-						wards.options[wards.options.length] = new Option(w.Name, w.Name);
-					}
-				}
-			};
-		}
-	</script>
-	<script>
-		function addPro(id) {
-			$.ajax({
-				url: '/customer/cart/add-to-cart',
-				method: 'post',
-				data: { id },
-				dataType: 'json',
-				success: function (data) {
-					alert(data.msg)
-				},
-				error: function (data) {
-					alert('server error occured')
-				}
-			})
-		}
-	</script>
-	<script>
-		function delPro(id) {
-			$.ajax({
-				url: '/customer/cart/remove-from-cart',
-				method: 'post',
-				data: { id },
-				dataType: 'json',
-				success: function (data) {
-					$.get(location.href, function (data) {
-						$('#listproduct').empty().append($(data).find('#listproduct').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary1').empty().append($(data).find('#summary1').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary2').empty().append($(data).find('#summary2').children());
-					});
-				},
-				error: function (data) {
-					alert('server error occured')
-				}
-			});
-		}
-
-		function increase(id) {
-			$.ajax({
-				url: '/customer/cart/increase-quantity',
-				method: 'post',
-				data: { id },
-				dataType: 'json',
-				success: function (data) {
-					$.get(location.href, function (data) {
-						$('#listproduct').empty().append($(data).find('#listproduct').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary1').empty().append($(data).find('#summary1').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary2').empty().append($(data).find('#summary2').children());
-					});
-				},
-				error: function (data) {
-					alert('server error occured')
-				}
-			});
-		}
-		function decrease(id) {
-			$.ajax({
-				url: '/customer/cart/decrease-quantity',
-				method: 'post',
-				data: { id },
-				dataType: 'json',
-				success: function (data) {
-					$.get(location.href, function (data) {
-						$('#listproduct').empty().append($(data).find('#listproduct').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary1').empty().append($(data).find('#summary1').children());
-					});
-					$.get(location.href, function (data) {
-						$('#summary2').empty().append($(data).find('#summary2').children());
-					});
-				},
-				error: function (data) {
-					alert('server error occured')
-				}
-			});
-		}
-	</script>
-	<script>
-		var button = document.getElementById("submitCart");
-		var citis = document.getElementById("city");
-		var districts = document.getElementById("district");
-		var wards = document.getElementById("ward");
-		var fname = document.getElementById("fname");
-		function compare() {
-			if(citis.value === '' || districts.value ==='' || wards ===''||fname ===''){
-				button.disabled = true;
-			}
-			else{
 				button.disabled = false;
 			}
 		}

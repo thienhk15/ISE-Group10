@@ -1,6 +1,6 @@
 <!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
-  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 150px">
     <h1 class="font-weight-semi-bold text-uppercase mb-3">Products</h1>
     <div class="d-inline-flex">
       <p class="m-0"><a href="/customer/home">Home</a></p>
@@ -20,35 +20,30 @@
       <!-- Price Start -->
       <div class="border-bottom mb-4 pb-4">
         <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
-        <form>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" checked id="price-all">
-            <label class="custom-control-label" for="price-all">All Price</label>
-          </div>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-1">
-            <label class="custom-control-label" for="price-1">$0 - $100</label>
-          </div>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-2">
-            <label class="custom-control-label" for="price-2">$100 - $200</label>
-          </div>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-3">
-            <label class="custom-control-label" for="price-3">$200 - $300</label>
-          </div>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-            <input type="checkbox" class="custom-control-input" id="price-4">
-            <label class="custom-control-label" for="price-4">$300 - $400</label>
-          </div>
-          <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-            <input type="checkbox" class="custom-control-input" id="price-5">
-            <label class="custom-control-label" for="price-5">$400 - $500</label>
-          </div>
-        </form>
-      </div>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton"
+          data-params='0,10000000'><i class="fas fa-play mr-2"></i> All</button>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton1"
+          data-params='0,50000'><i class="fas fa-play mr-2"></i>0&#8363; - 50.000&#8363;</button>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton2"
+          data-params='50000,100000'><i class="fas fa-play mr-2"></i>50.000&#8363; - 100000&#8363;</button>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton3"
+          data-params='100000,200000'><i class="fas fa-play mr-2"></i>100.000&#8363; - 200.000&#8363;</button>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton4"
+          data-params='200000,500000'><i class="fas fa-play mr-2"></i>200.000&#8363; - 500.000&#8363;</button>
+        <button class="btn d-flex align-items-center text-dark" id="specialButton5"
+          data-params='500000,10000000'><i class="fas fa-play mr-2"></i>More than 500.000&#8363;</button>
       </div>
       <!-- Price End -->
+      <div class="border-bottom mb-4 pb-4 navbar-light text-dark">
+        <h5 class="font-weight-semi-bold mb-4">Filter by Categories</h5>
+        <a href="/customer/products?name=&cat=0&sort=&from=&to=&page=" class="nav-item nav-link text-dark"><i
+            class="fas fa-play mr-2"></i>All</a>
+        {{#each categories}}
+        <a href="/customer/products?name=&cat={{id}}&sort=&from=&to=&page=" class="nav-item nav-link text-dark"><i
+            class="fas fa-play mr-2"></i>{{name}}</a>
+        {{/each}}
+      </div>
+    </div>
     <!-- Shop Sidebar End -->
 
     <!-- Shop Product Start -->
@@ -74,7 +69,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
           <div class="card product-item border-0 mb-4">
             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-              <img class="img-fluid w-100" src="{{imageUrl}}" alt="">
+              <img class="img-fluid w-100" src="{{imageUrl}}" alt="cover">
             </div>
             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
               <h6 class="text-truncate mb-3">{{title}}</h6>
@@ -91,10 +86,10 @@
               </button>
             </div>
           </div>
-        </div>  
+        </div>
         {{/each}}
         {{else}}
-          <div class="col-12 pb-1 text-center">No products available</div>
+        <div class="col-12 pb-1 text-center">No products available</div>
         {{/if}}
 
         {{#if pagination_info}}
@@ -102,20 +97,22 @@
           <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mb-3">
               {{#if pagination_info.has_previous_page}}
-              <button class="page-item" value="{{pagination_info.previous_page}}" onclick="paginate(this.value)">
-                <a class="page-link">Next</a></button>
+              <button class="btn page-item p-0 m-0" value="{{pagination_info.previous_page}}"
+                onclick="paginate(this.value)">
+                <a class="page-link">Previous</a></button>
               {{else}}
-              <button class="page-item disabled"><a href="" class="page-link">Previous</a></button>
+              <button class="btn page-item disabled p-0 m-0"><a href="" class="page-link">Previous</a></button>
               {{/if}}
               {{#forloop pagination_info.first_page pagination_info.last_page 1 originalUrl}}
-              <button class="page-item" value="{{@index}}" onclick="paginate(this.value)">
+              <button class="btn page-item p-0 m-0" value="{{@index}}" onclick="paginate(this.value)">
                 <a class="page-link">{{@index}}</a></button>
               {{/forloop}}
               {{#if pagination_info.has_next_page}}
-              <button class="page-item" value="{{pagination_info.next_page}}" onclick="paginate(this.value)">
+              <button class="btn page-item p-0 m-0" value="{{pagination_info.next_page}}"
+                onclick="paginate(this.value)">
                 <a class="page-link">Next</a></button>
               {{else}}
-              <button class="page-item disabled"><a href="" class="page-link">Next</a></button>
+              <button class="btn page-item disabled p-0 m-0"><a href="" class="page-link">Next</a></button>
               {{/if}}
             </ul>
           </nav>

@@ -49,11 +49,9 @@ const userService = {
         return new Promise(async (resolve, reject) => {
             try {
                 const user = await User.findOne({ where: { email: email }, raw: true });
-                console.log('user: ', user);
                 if (_.isEmpty(user)) {
                     return reject(Error('Wrong email or password'));
                 }
-                // console.log(5555555555555555);
                 bcrypt.compare(pass, user.password)
                     .then((result) => {
                         if (!result) {

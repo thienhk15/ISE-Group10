@@ -1,3 +1,42 @@
+<div id="header-carousel" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active" style="height: 410px;">
+			<img class="img-fluid"
+				src="https://media.istockphoto.com/id/120004828/photo/books-stacked-on-table-at-bookstore.jpg?s=612x612&w=0&k=20&c=NtNzx4xdP-6Dd3eomX2mf_-w2-JJhYbndBwLFRdCetY="
+				alt="Image">
+			<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+				<div class="p-3" style="max-width: 700px;">
+					<h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order
+					</h4>
+					<h3 class="display-4 text-white font-weight-semi-bold mb-4">All book categories</h3>
+					<a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item" style="height: 410px;">
+			<img class="img-fluid"
+				src="https://www.delcolibraries.org/sites/default/files/tumblr_static_literature-books-584.jpg" alt="Image">
+			<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+				<div class="p-3" style="max-width: 700px;">
+					<h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order
+					</h4>
+					<h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
+					<a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+		<div class="btn btn-dark" style="width: 45px; height: 45px;">
+			<span class="carousel-control-prev-icon mb-n2"></span>
+		</div>
+	</a>
+	<a class="carousel-control-next" href="#header-carousel" data-slide="next">
+		<div class="btn btn-dark" style="width: 45px; height: 45px;">
+			<span class="carousel-control-next-icon mb-n2"></span>
+		</div>
+	</a>
+</div>
 <!-- Categories Start -->
 <div class="container-fluid pt-5">
 	<div class="row px-xl-5 pb-3">
@@ -6,7 +45,7 @@
 			<div class="card hovereffect">
 				<img class="img-fluid" src="{{imgUrl}}" alt="">
 				<div class="overlay">
-					<a class="info">{{name}}</a>
+					<a href="/customer/products?name=&cat={{id}}&sort=&from=&to=&page=" class="info">{{name}}</a>
 				</div>
 			</div>
 		</div>
@@ -30,12 +69,13 @@
 				<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
 					<h6 class="text-truncate mb-3">{{title}}</h6>
 					<div class="d-flex justify-content-center">
-						<h6>{{price}}</h6>
+						<h6>{{price}} &#8363;</h6>
 						<!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
 					</div>
 				</div>
 				<div class="card-footer d-flex justify-content-between bg-light border">
-					<a href="/customer/product_details/{{id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
+					<a href="/customer/product_details/{{id}}" class="btn btn-sm text-dark p-0"><i
+							class="fas fa-eye text-primary mr-1"></i>View
 						Detail</a>
 					<button class="btn btn-sm text-dark p-0 submitBtn" value="{{id}}" onclick="addPro(this.value)">
 						<i class="fas fa-shopping-cart text-primary mr-1" name="book_id" value="{{id}}"></i>Add To Cart

@@ -8336,9 +8336,6 @@ body {
 #layoutAuthentication #layoutAuthentication_footer {
   min-width: 0; }
 
-#layoutSidenav {
-  display: flex; }
-
 #layoutSidenav #layoutSidenav_nav {
   flex-basis: 225px;
   flex-shrink: 0;
@@ -8671,3 +8668,7 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important; }
+
+.container {
+  margin-left: 7rem;
+}

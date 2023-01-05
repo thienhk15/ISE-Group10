@@ -10,12 +10,14 @@ const fileService = {
         if (err) {
           return reject(Error(err));
         }
-        console.log('files be4: ', files);
         if (_.isEmpty(files)) resolve(null);
         if (!files.myFile.length) {
           const file = files.myFile;
           return resolve(file.toJSON());
         }
+        // else {
+          
+        // }
       })
     })
   }

@@ -3,6 +3,21 @@ const { $lte } = require('../config/operatorAlias');
 const { $gte } = require('../config/operatorAlias');
 const sequelize = require('sequelize');
 const orderService = {
+    getOrdersByUserId: (userId) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const orders = Order.findAll({
+                    where: {
+                        createdBy: userId
+                    },
+                    raw: true
+                });
+                return resolve(orders);
+            } catch (error) {
+                return reject(error);
+            }
+        })
+    },
     createNewOrder: (newAddress, subTotal, userPhone, userId) => {
         return new Promise(async (resolve, reject) => {
             try {
@@ -174,6 +189,20 @@ const orderService = {
             }
             catch (err) {
                 return reject(err);
+            }
+        })
+    },
+    deleteOrderById: (id) => {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = Order.destroy({
+                    where: {
+                        id: id
+                    }
+                });
+                return resolve(result);
+            } catch (error) {
+                return reject(error);
             }
         })
     }
