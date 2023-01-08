@@ -409,6 +409,48 @@ const bookService = {
         return reject(error);
       }
     })
+  },
+  deleteBookByAuthor: (idAuthor) =>{
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await Book.destroy({
+          where: {
+            authorId: idAuthor
+          }
+        });
+        return resolve(result);
+      } catch (error) {
+        return reject(error);
+      }
+    })
+  },
+  deleteBookByPublisher:(idPub) =>{
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await Book.destroy({
+          where: {
+            publisherId: idPub
+          }
+        });
+        return resolve(result);
+      } catch (error) {
+        return reject(error);
+      }
+    })
+  },
+  deleteBookByCategory: (idCat) =>{
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await Book.destroy({
+          where: {
+            categoryId: idCat
+          }
+        });
+        return resolve(result);
+      } catch (error) {
+        return reject(error);
+      }
+    })
   }
 }
 

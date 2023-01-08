@@ -31,7 +31,6 @@ router.get('/', async (req, res, next) => {
         products[i].total = parseInt(obj.quantity) * Math.trunc(parseInt(products[i].price));
         subTotal += products[i].total;
       }
-      subTotal = helperService.formatPrice(subTotal);
       products = helperService.formatProducts(products);
       res.render('customer/cart', { user, layout: 'customer-main', products, subTotal, cartQuantity, orders });
     }

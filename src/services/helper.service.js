@@ -2,7 +2,6 @@ const _ = require('lodash');
 
 
 function formatPrice(price) {
-  console.log('price: ', price);
   return price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 }
 

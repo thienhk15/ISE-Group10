@@ -33,7 +33,6 @@ router.post('/', async (req, res) => {
                     }
                 }
                 products = helperService.formatProducts(products);
-                subTotal = helperService.formatPrice(subTotal);
                 res.render('customer/checkout', { user, products, subTotal, address });
             }
         }
@@ -49,7 +48,7 @@ router.post('/create_order', async (req, res) => {
         let user = req.cookies["user"];
         const yourCart = await cartService.getCart(user.id);
         listProductsJson = JSON.parse(yourCart.products);
-        const newOrder = await orderService.createNewOrder(req.body.address, req.body.total, user.phone, user.id);
+        const newOrder = await orderService.createNewOrder(req.body.address, req.body.total.split('.').join(''), user.phone, user.id);
         for (var i = 0; i < listProductsJson.length; i++) {
             obj = listProductsJson[i];
             const newItemList = await orderItemListService.createNewOne(newOrder.id, obj.quantity, obj.book_id)
@@ -59,8 +58,8 @@ router.post('/create_order', async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        res.render('admin/error401')
+        res.render('customer/error401')
     }
-})
+});
 
 module.exports = router;

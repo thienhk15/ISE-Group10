@@ -9,6 +9,10 @@ const accountDetail = require('../app/controllers/admin/accountdetails.controlle
 const chartController = require('../app/controllers/admin/chart.controller');
 const banDetail = require('../app/controllers/admin/ban_unban');
 const productController = require('../app/controllers/admin/product.controller');
+const authorsController = require('../app/controllers/admin/authors.controller');
+const categoriesController = require('../app/controllers/admin/categories.controller');
+const publishersController = require('../app/controllers/admin/publishers.controller');
+const categorydetailsController = require('../app/controllers/admin/categorydetails.controller');
 
 router.use('/chart', chartController);
 router.use('/home', adminController.home);
@@ -26,6 +30,10 @@ router.use('/orderdetails', orderdetailsController);
 router.use('/accountdetail', accountDetail);
 router.use('/bandetail', banDetail);
 router.use('/product', productController);
+router.use('/table_authors', authorsController);
+router.use('/table_categories', categoriesController);
+router.use('/table_publishers', publishersController);
+router.use('/category_details', categorydetailsController);
 
 module.exports = router;
 

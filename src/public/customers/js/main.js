@@ -168,7 +168,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#leaveReview .fa-star').on('click', function () {
         if ($('#leaveReview').children('.fas').length !== 0) {
-            console.log('goes here');
             $('#reviewSubmit').prop('disabled', false);
         }
     });

@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
-    <link rel="stylesheet" href="/customers/css/style.css">
+    {{!-- <link rel="stylesheet" href="/customers/css/style.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/admin/css/app.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -28,6 +28,15 @@
                                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                         Dashboard
                                     </a>
+                                    <a class="nav-link" href="/admin/update">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                        Update profile
+                                    </a>
+                                    <a class="nav-link" href="/admin/banned">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                        Ban/Unban Account
+                                    </a>
+                                    
                                     <div class="sb-sidenav-menu-heading">Interface</div>
                                     <a class="nav-link" href="/admin/table_account">
                                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -62,7 +71,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.3.js"
 		integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="/admin/js/chart-area-demo.js"></script>
     <script src="/admin/js/chart-bar-demo.js"></script>

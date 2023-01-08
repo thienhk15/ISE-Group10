@@ -23,9 +23,51 @@ const authorService = {
         });
         return resolve(author);
       } catch (error) {
-        console.log(error);
         return reject(error);
       }
+    })
+  },
+  createAuthor: (data) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await Author.sync();
+        const result = await Author.create({
+
+          name: data
+        });
+        return resolve(result);
+      } catch (error) {
+        return reject(error);
+      }
+    })
+  },
+  updateAuthor: (newName, idAu) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const author = Author.update(
+          {
+            name: newName,
+          },
+          {
+            where: { id: idAu },
+          });
+        return resolve(author);
+      } catch (error) {
+        return reject(error);
+      } 
+    })
+  },
+  deleteAuthor: (authorId) =>{
+    return new Promise(async (resolve, reject) => {
+      try {
+        const author = Author.destroy(
+          {
+            where: { id: authorId },
+          });
+        return resolve(author);
+      } catch (error) {
+        return reject(error);
+      } 
     })
   }
 }
