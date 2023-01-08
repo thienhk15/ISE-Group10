@@ -47,6 +47,7 @@ const Order = db.define('Order',
     }
 );
 
+
 Order.sync()
     .then(() => console.log('Order sync successfully'))
     .catch(error => console.log(error));

@@ -1,4 +1,5 @@
 const OrderItemList = require('../models/order_item_lists.model');
+const { Sequelize } = require('sequelize');
 
 const db = require('../config/database');
 
@@ -45,6 +46,52 @@ const orderItemListService = {
             }
             catch (err) {
                 return reject(err);
+            }
+        })
+    },
+    getAllOrderByBookId: (bookId) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await OrderItemList.findAll({
+                    attributes: [
+                        [Sequelize.fn('DISTINCT', Sequelize.col('order_id')), 'orderId']
+                    ],
+                    where: {
+                        bookId: bookId
+                    },
+                    raw: true
+                });
+                return resolve(result);
+            } catch (error) {
+                return reject(error);
+            }
+        })
+    },
+    deleteOrderItemByBookId: (bookId) => {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = OrderItemList.destroy({
+                    where: {
+                        bookId: bookId
+                    }
+                });
+                return resolve(result);
+            } catch (error) {
+                return reject(error);
+            }
+        })
+    },
+    deleteOrderItemById: (id) => {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = OrderItemList.destroy({
+                    where: {
+                        orderId: id
+                    }
+                });
+                return resolve(result);
+            } catch (error) {
+                return reject(error);
             }
         })
     }

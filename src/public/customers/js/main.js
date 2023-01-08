@@ -126,3 +126,49 @@ const validate = () => {
 }
 
 $('#email').on('input', validate);
+
+$('#newPass, #confirmPass').on('keyup', function () {
+    if ($('#newPass').val() == $('#confirmPass').val()) {
+        $('#message').html('Matching').css('color', 'green');
+        $('#changePassBtn').prop('disabled', false);
+    } else {
+        $('#message').html('Not Matching').css('color', 'red');
+        $('#changePassBtn').prop('disabled', true);
+    }
+});
+
+$(document).ready(function () {
+    $('#st1').click(function () {
+        $('#leaveReview .fa-star').removeClass('fas').addClass('far');
+        $('#st1').removeClass('far').addClass('fas');
+        $('#rating').attr('value', 1);
+    });
+    $('#st2').click(function () {
+        $('#leaveReview .fa-star').removeClass('fas').addClass('far');
+        $('#st1, #st2').removeClass('far').addClass('fas');
+        $('#rating').attr('value', 2);
+    });
+    $('#st3').click(function () {
+        $('#leaveReview .fa-star').removeClass('fas').addClass('far');
+        $('#st1, #st2, #st3').removeClass('far').addClass('fas');
+        $('#rating').attr('value', 3);
+    });
+    $('#st4').click(function () {
+        $('#leaveReview .fa-star').removeClass('fas').addClass('far');
+        $('#st1, #st2, #st3, #st4').removeClass('far').addClass('fas');
+        $('#rating').attr('value', 4);
+    });
+    $('#st5').click(function () {
+        $('#leaveReview .fa-star').removeClass('fas').addClass('far');
+        $('#st1, #st2, #st3, #st4, #st5').removeClass('far').addClass('fas');
+        $('#rating').attr('value', 5);
+    });
+});
+
+$(document).ready(function () {
+    $('#leaveReview .fa-star').on('click', function () {
+        if ($('#leaveReview').children('.fas').length !== 0) {
+            $('#reviewSubmit').prop('disabled', false);
+        }
+    });
+})

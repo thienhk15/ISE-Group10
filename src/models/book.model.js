@@ -5,8 +5,8 @@ const Book = db.define('Book',
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             autoIncrement: true,
+            primaryKey: true,
             allowNull: false
         },
         title: {
