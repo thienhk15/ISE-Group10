@@ -14,7 +14,6 @@ router.get('/', async (req, res, next) => {
     else {
       let products = [];
       let subTotal = 0;
-
       const yourCart = await cartService.getCart(user.id);
       if (!yourCart) {
         return res.render('customer/cart', { user, products, subTotal, orders, cartQuantity: 0 });
@@ -102,7 +101,6 @@ router.post('/remove-from-cart', async (req, res) => {
 router.post('/increase-quantity', async (req, res) => {
   try {
     let user = req.cookies["user"];
-    console.log(user);
     const book_id = req.body.id;
     const cart = await cartService.getCart(user.id);
     const productsJson = JSON.parse(cart.products);

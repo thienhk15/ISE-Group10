@@ -29,6 +29,17 @@
           </div>
           {{/each}}
           <hr class="mt-0">
+          {{#if voucher}}
+          <div class="d-flex justify-content-between mb-3 pt-1">
+            <h6 class="font-weight-medium">Apply Voucher</h6>
+            <h6 class="font-weight-medium">{{voucher.discount}}%</h6>
+          </div>
+          {{else}}
+          <div class="d-flex justify-content-between mb-3 pt-1">
+            <h6 class="font-weight-medium">Wrong or None voucher apply</h6>
+            <h6 class="font-weight-medium">0%</h6>
+          </div>
+          {{/if}}
           <div class="d-flex justify-content-between mb-3 pt-1">
             <h6 class="font-weight-medium">Subtotal</h6>
             <h6 class="font-weight-medium">${{subTotal}}&#8363;</h6>

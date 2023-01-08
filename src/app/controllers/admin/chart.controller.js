@@ -137,8 +137,6 @@ router.get('/', async (req, res, next) => {
     revenue["quantity4"] = listBook[3].sum;
     revenue["quantity5"] = listBook[4].sum;
 
-    console.log(revenue);
-
     res.render('admin/chart',   {layout: 'admin-main', 
                                 revenue, 
                                 totalRevenue, 

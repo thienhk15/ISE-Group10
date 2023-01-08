@@ -51,7 +51,6 @@ const userService = {
                 if (users == null) 
                     return reject(null);
                 else {
-                    // console.log(5555555555555555);
                   bcrypt.compare(pass, users.password)
                     .then((result) => {
                         if(result == true)

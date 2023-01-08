@@ -1,0 +1,97 @@
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Voucher list</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="/admin/home">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Tables</li>
+                </ol>
+                {{#if message}}
+                {{#with message}}
+                <div class="alert alert-{{alert}} fade show">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{content}}
+                </div>
+                {{/with}}
+                {{/if}}
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newProduct">
+                    Add new Voucher
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="newProduct" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form" action="/admin/table_vouchers/create" method="post"
+                                    id="addAuthorForm">
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label for="author">
+                                                <h4>Voucher code</h4>
+                                            </label>
+                                            <input type="text" class="form-control" name="code" id="code"
+                                                placeholder="Enter voucher's name" required>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="author">
+                                                <h4>Voucher discount percentage</h4>
+                                            </label>
+                                            <input type="text" class="form-control" name="discount" id="discount"
+                                                placeholder="Enter discount percentage" required>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" form="addAuthorForm" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        DataTable Account
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Voucher code</th>
+                                    <th>Percentage</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each vouchers}}
+                                <tr href="">
+                                    <td>{{code}}</td>
+                                    <td>{{discount}}</td>
+                                    <td>
+                                        <form action="/admin/table_vouchers/delete" method="post" id="deleteAu">
+                                            <input type="hidden" name="code" value="{{code}}">
+                                            <button type="submit" class="btn btn-warning">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+</body>

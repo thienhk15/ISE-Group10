@@ -13,6 +13,7 @@ const authorsController = require('../app/controllers/admin/authors.controller')
 const categoriesController = require('../app/controllers/admin/categories.controller');
 const publishersController = require('../app/controllers/admin/publishers.controller');
 const categorydetailsController = require('../app/controllers/admin/categorydetails.controller');
+const voucherController = require('../app/controllers/admin/voucher.controller');
 
 router.use('/chart', chartController);
 router.use('/home', adminController.home);
@@ -34,6 +35,6 @@ router.use('/table_authors', authorsController);
 router.use('/table_categories', categoriesController);
 router.use('/table_publishers', publishersController);
 router.use('/category_details', categorydetailsController);
-
+router.use('/table_vouchers', voucherController);
 module.exports = router;
 

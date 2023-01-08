@@ -12,7 +12,6 @@ router.get('/:id', async (req, res) => {
     const { success } = req.query;
     try {
         if (req.cookies.admin != null) {
-            console.log(req.query);
             let category = await categoryService.getCategoryById(categoryId);
             const message = _.isEmpty(success) ? null : {
                 content: success === 'true' ? 'Category updated' : 'Update failed',
@@ -33,7 +32,6 @@ router.get('/:id', async (req, res) => {
 router.post('/edit', async (req, res) => {
     try {
         const { id, ...category } = req.body;
-        console.log(req.body.title);
         const result = await categoryService.updateCategoryById(id, req.body.title);
         if (!result) return res.redirect(`/admin/category_details/${id}?success=false`);
         return res.redirect(`/admin/category_details/${id}?success=true`);
@@ -47,7 +45,6 @@ router.post('/update_image/:catId', async (req, res) => {
     const catId = Number(req.params.catId);
     try {
         const uploadDir = path.join(appRoot.toString(), 'src/public/customers/img/themes/images/genres');
-        console.log(uploadDir);
         const options = {
             uploadDir: uploadDir,
             multiples: true,
@@ -72,7 +69,6 @@ router.post('/update_image/:catId', async (req, res) => {
 
 router.post('/delete', async (req, res) => {
     const { id } = req.body;
-    console.log(id);
     try {
         const books = await bookService.deleteBookByCategory(id);
         const result = await categoryService.deleteCategory(id);

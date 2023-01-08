@@ -31,7 +31,6 @@ router.post("/", async (req, res) => {
         let err = [];
         const newUser = await userService.checkIfExists(email);
         var patt = new RegExp(/^\+?1?\s*?\(?\d{3}(?:\)|[-|\s])?\s*?\d{3}[-|\s]?\d{4}$/);
-        console.log(newUser);
         if(!name||!email||!pass1||!pass2||!dob||!phone){
             err.push({message: "Please Enter all fields", check: "alert-block alert-error fade in"});
         }

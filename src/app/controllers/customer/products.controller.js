@@ -20,8 +20,6 @@ router.get('/', async (req, res, next) => {
         const from = req.query.from[1] ? Number(req.query.from[1]): 0;
         const to = req.query.to[1] ? Number(req.query.to[1]): 1000000000;
 
-        console.log(from + "->" + to)
-
         let pageNo = 1
         if (!Number.isNaN(pageAsNum) && pageAsNum > 0) {
             pageNo = pageAsNum;

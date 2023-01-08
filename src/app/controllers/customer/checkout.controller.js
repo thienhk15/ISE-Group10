@@ -5,6 +5,7 @@ const bookService = require('../../../services/book.service');
 const orderService = require('../../../services/order.service');
 const orderItemListService = require('../../../services/order_item_lists.service');
 const helperService = require("../../../services/helper.service");
+const voucherService = require("../../../services/voucher.service");
 
 router.post('/', async (req, res) => {
     try {
@@ -12,6 +13,11 @@ router.post('/', async (req, res) => {
         if (user == undefined) res.render('customer/401', { layout: 'customer-main' })
         else {
             const address = req.body.fname + ", " + req.body.ward + ", " + req.body.district + ", " + req.body.city;
+            const voucher = await voucherService.getVoucher(req.body.voucher);
+            let discount = Number(100);
+            if(voucher != undefined) {
+                discount = 100 -  parseInt(voucher.discount);
+            }
             if (user != null) {
                 const myCart = await cartService.getCart(user.id);
                 listProductsJson = JSON.parse(myCart.products);
@@ -33,7 +39,9 @@ router.post('/', async (req, res) => {
                     }
                 }
                 products = helperService.formatProducts(products);
-                res.render('customer/checkout', { user, products, subTotal, address });
+                subTotal = parseFloat(subTotal) * (discount/100)
+                subTotal = parseInt(subTotal);
+                res.render('customer/checkout', { user, products, subTotal, address, voucher });
             }
         }
     }

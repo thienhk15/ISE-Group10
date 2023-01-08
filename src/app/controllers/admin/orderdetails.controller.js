@@ -35,7 +35,6 @@ router.get('/:idorder', async (req, res) => {
 router.post('/mark-pending', async (req, res) => {
     try {
         if(req.cookies.admin != null) {
-            console.log(req.body.id)
             const updateOrder = await orderService.updateOrder(req.body.id, 1);
             let message="";
             res.json({ msg: message })
