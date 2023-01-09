@@ -14,6 +14,7 @@ const orderstatusController = require('../app/controllers/customer/orderstatus.c
 const orderdetailsController = require('../app/controllers/customer/order_details.controller');
 const reviewController = require('../app/controllers/customer/review.controller');
 const logoutController = require('../app/controllers/customer/logout.controller');
+const feedbackController = require('../app/controllers/customer/feedback.controller');
 
 router.use('/cart', cartController)
 router.use('/home', homeController);
@@ -27,5 +28,6 @@ router.use('/checkout', checkoutController);
 router.use('/orderstatus', orderstatusController);
 router.use('/order_details', orderdetailsController);
 router.use('/review', reviewController);
+router.use('/feedback', feedbackController);
 
 module.exports = router;
