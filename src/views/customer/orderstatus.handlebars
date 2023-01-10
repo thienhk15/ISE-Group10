@@ -113,6 +113,9 @@
                     <span>
                         <a type="button" class="btn btn-primary btn-lg" href="/customer/order_details/{{id}}">Check details order</a>
                     </span>
+                    {{#isDone status }}
+                    <h5 class="mb-0" style="margin-top: 25px;" ><a href="/customer/feedback/{{id}}">Feedback</a></h5>
+                    {{/isDone}}
                 </div>
                 <div class="text-end">
                     <p class="mb-0">Created At <span>{{createAt}}</span></p>
@@ -150,3 +153,6 @@
     </div>
 </div>
 {{/each}}
+
+<script src="handlebars.min.js"></script>
+<script src="helper.js"></script>

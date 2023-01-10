@@ -21,6 +21,13 @@ helper.handlebars.registerHelper('forloop', function(from, to, incr, url, block)
     }
     return accum;
 });
+    
+helper.handlebars.registerHelper('isDone', function(status, options) {
+    if(status == 3) {
+        return options.fn(this);
+      }
+      return options.inverse(this);
+});
 
 // database
 db.authenticate()

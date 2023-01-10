@@ -205,7 +205,24 @@ const orderService = {
                 return reject(error);
             }
         })
-    }
+    },
+    updateNote: (idOrder, message) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const order = await Order.update(
+                    {
+                        notes: message,
+                    },
+                    {
+                        where: { id: idOrder },
+                    });
+                resolve(order);
+            }
+            catch (err) {
+                return reject(err);
+            }
+        })
+    },
 }
 
 module.exports = orderService;
