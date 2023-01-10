@@ -38,10 +38,15 @@ router.post('/', async (req, res) => {
                         }
                     }
                 }
+                let shipFee = 0
+                if (req.body.city != 'Thành phố Hồ Chí Minh') shipFee = Math.floor(Math.random() * (40000 - 20000 + 1)) + 20000;
+                console.log(shipFee);
                 products = helperService.formatProducts(products);
+                const preSubTotal = subTotal;
                 subTotal = parseFloat(subTotal) * (discount/100)
                 subTotal = parseInt(subTotal);
-                res.render('customer/checkout', { user, products, subTotal, address, voucher });
+                subTotal+= shipFee;
+                res.render('customer/checkout', { user, products, subTotal, address, voucher, shipFee, preSubTotal });
             }
         }
     }
