@@ -27,5 +27,13 @@ router.use('/checkout', checkoutController);
 router.use('/orderstatus', orderstatusController);
 router.use('/order_details', orderdetailsController);
 router.use('/review', reviewController);
+router.get('/privacy', async (req, res) => {
+    try {
+      return res.render('customer/privacy');
+    } catch (error) {
+      console.log(error);
+      return res.redirect('/customer/error404');
+    }
+  })
 
 module.exports = router;
