@@ -29,7 +29,7 @@ router.use('/orderstatus', orderstatusController);
 router.use('/order_details', orderdetailsController);
 router.use('/review', reviewController);
 router.use('/feedback', feedbackController);
-=======
+
 router.get('/privacy', async (req, res) => {
     try {
       return res.render('customer/privacy');
